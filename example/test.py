@@ -1,6 +1,8 @@
-from graphotype import Schema
+from graphotype import Schema, Query
 
 s = Schema('schema.graphql')
-reveal_type(s)
-result = s.query('{ me { id }}')
+result = Query(s, '{ me { id }}')
+
 reveal_type(result)
+reveal_type(result())
+reveal_type(result().me)
